@@ -290,7 +290,7 @@ void makeOneQues(Message message[])
 		(*buff).answer[0] = questionList[n].answer;
 		strcpy(message[count].content,(*buff).content);
 		message[count].answer[0]=(*buff).answer[0];
-		// printf("%d : %s\n",count,message[count].content);
+		printf("%d : %s\n",count,message[count].content);
 		count ++;
 		free(buff);
 	}
@@ -311,7 +311,7 @@ void makeOneQues(Message message[])
 		(*buff).answer[0] = questionList[n].answer;
 		strcpy(message[count].content,(*buff).content);
 		message[count].answer[0]=(*buff).answer[0];
-		// printf("%d : %s\n",count,message[count].content);
+		printf("%d : %s\n",count,message[count].content);
 		count ++;
 		free(buff);
 	}
@@ -332,7 +332,7 @@ void makeOneQues(Message message[])
 		(*buff).answer[0] = questionList[n].answer;
 		strcpy(message[count].content,(*buff).content);
 		message[count].answer[0]=(*buff).answer[0];
-		// printf("%d : %s\n",count,message[count].content);
+		printf("%d : %s\n",count,message[count].content);
 		count ++;
 		free(buff);
 	}
@@ -469,11 +469,12 @@ int main(int argc, char const *argv[])
 					if (0 == strcmp(found->password, password))
 					{
 						int point1 = 0;
+						Message buff[20]; 
+						makeOneQues(buff);
 						for(int i=0;i<10;i++)
 						{
 						// Message buff = makeQuesList();
-							Message buff[20]; 
-							makeOneQues(buff);
+							
 							reply = buff[i].content;
 							// printf("%d Đáp án:\n%s\n",i, buff[i].content);
 							if (0 >= (bytes_sent = send(conn_sock, reply, strlen(reply), 0)))
